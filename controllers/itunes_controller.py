@@ -9,11 +9,13 @@ class ITunesController:
         for r in results:
             list.append({
                 'name': r['trackName'] if 'trackName' in r else '',
-                'autor': r['artistName'] if 'artistName' in r else '',
-                'album': r['collectionName'] if 'collectionName' in r else '',
                 'url': r['trackViewUrl'] if 'trackViewUrl' in r else '',
                 'type': type,
-                'source': 'itunes'
+                'source': 'itunes',
+                'details': {
+                    'Autor': r['artistName'] if 'artistName' in r else '',
+                    'Album': r['collectionName'] if 'collectionName' in r else ''
+                }
             })
         return list
 

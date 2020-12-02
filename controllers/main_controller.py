@@ -1,7 +1,9 @@
 from controllers.itunes_controller import ITunesController
+from controllers.tvmaze_controller import TVMazeController
 from api_codes import MESSAGES
 
 ITUNES_CONTROLLER = ITunesController()
+TVMAZE_CONTROLLER = TVMazeController()
 
 
 class MainController:
@@ -26,7 +28,11 @@ class MainController:
             response['results'] += itunes_res
             response['errors'] += itunes_errors
 
-            #
+            #tvMaze search
+            tvMaze_res, tvMaze_errors = TVMAZE_CONTROLLER.search(term)
+            response['results'] += tvMaze_res
+            response['errors'] += tvMaze_errors
+
         # Sorting alphabetically
         if len(response['results']) > 0:
             response['results'] = sorted(response['results'], key=lambda k: k['name'])

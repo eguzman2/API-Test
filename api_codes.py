@@ -4,4 +4,6 @@ MESSAGES = {
 	'1002': 'Busqueda en iTunes completada',
 	# 2: iTunes
 	'2001': 'No se pudo establecer una coneccion con iTunes',
+	# 3: TVMaze
+	'3001': 'No se pudo establecer una coneccion con TVMaze',
 }
